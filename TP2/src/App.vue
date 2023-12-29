@@ -2,7 +2,7 @@
 
 <Navbar/>
 
-  <RouterView/>
+  <RouterView :equipes="equipes" :ajoutEquipe="ajoutEquipe"/>
 </template>
 
 <script>
@@ -10,16 +10,10 @@ import { RouterLink, RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 
 export default {
-  data(){
 
-  },
-  components: {
-    Navbar,
-    RouterLink,
-    RouterView
-  },
-  provide:{
-    equipes:[
+  data(){
+    return{
+      equipes:[
       {idEquipe: 1,
         nom:"Space Rangers",
         logo:"https://cdnb.artstation.com/p/assets/images/images/005/603/301/large/daka-dibuja-pandas.jpg?1492380569",
@@ -41,9 +35,29 @@ export default {
           {nomJoueur: "Misses-Nun"},
           {nomJoueur: "TheD00D"}
         ]
-      },
+      }
     ]
-  }
+    }
+  },
+  methods:{
+    ajoutEquipe(newTeam){
+      this.equipes.push(newTeam);
+    }
+  },
+  components: {
+    Navbar,
+    RouterLink,
+    RouterView
+  },
+  provide(){
+    return{
+      equipes: this.equipes,
+      ajoutEquipe: this.ajoutEquipe
+    }
+  },
+  mounted() {
+  console.log(this.equipes);
+}
 }
 
 </script>
