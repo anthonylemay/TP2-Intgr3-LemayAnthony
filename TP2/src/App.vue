@@ -2,7 +2,8 @@
 
 <Navbar/>
 
-  <RouterView :equipes="equipes" :ajoutEquipe="ajoutEquipe"/>
+  <RouterView :games="games" :equipes="equipes" :ajoutEquipe="ajoutEquipe"/>
+
 </template>
 
 <script>
@@ -13,6 +14,29 @@ export default {
 
   data(){
     return{
+      games:[
+        {idGame: 1,
+          gameName: "League of Legends",
+        gamePicture:"https://images.igdb.com/igdb/image/upload/t_cover_big/co49wj.png",
+      description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+    },
+        {idGame: 2,
+          gameName: "Fortnite",
+        gamePicture:"https://images.igdb.com/igdb/image/upload/t_cover_big/co5ztm.png",
+        description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+      },
+      {idGame: 3,
+          gameName: "Call of Duty Modern Warfare III",
+        gamePicture:"https://images.igdb.com/igdb/image/upload/t_cover_big/co7ctx.png",
+        description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+      },
+      {idGame: 4,
+          gameName: "Rocket League",
+        gamePicture:"https://images.igdb.com/igdb/image/upload/t_cover_big/co5w0w.png",
+        description: "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum"
+      },
+        
+      ],
       equipes:[
       {idEquipe: 1,
         nom:"Space Rangers",
@@ -51,6 +75,7 @@ export default {
   },
   provide(){
     return{
+      games: this.games,
       equipes: this.equipes,
       ajoutEquipe: this.ajoutEquipe
     }
