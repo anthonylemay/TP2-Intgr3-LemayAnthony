@@ -5,48 +5,48 @@
         <div>
             <label for="idEquipe">Id d'équipe</label>
             <input type="number" id="idEquipe" v-model.trim="newTeam.idEquipe">
-            <p v-if="newTeam.erreurs.idEquipe">Veuillez remplir ce champ</p>
+            <p class="error" v-if="newTeam.erreurs.idEquipe">Veuillez remplir ce champ</p>
         </div>
         <div>
             <label for="nomEquipe">Nom d'équipe</label>
             <input type="text" id="nomEquipe" v-model.trim="newTeam.nomEquipe">
-            <p v-if="newTeam.erreurs.nomEquipe">Veuillez remplir ce champ</p>
+            <p class="error" v-if="newTeam.erreurs.nomEquipe">Veuillez remplir ce champ</p>
         </div>
         
         <div>
             <label for="logoEquipe">Url du logo d'équipe</label>
             <input type="text" id="logoEquipe" v-model.trim="newTeam.logoEquipe">
-            <p v-if="newTeam.erreurs.logoEquipe">Veuillez remplir ce champ</p>
+            <p class="error" v-if="newTeam.erreurs.logoEquipe">Veuillez remplir ce champ</p>
         </div>
 
         <div>
             <label for="joueur1">Pseudonyme du joueur #1</label>
             <input type="text" id="joueur1" v-model.trim="newTeam.joueur1">
-            <p v-if="newTeam.erreurs.joueur1">Veuillez remplir ce champ</p>
+            <p class="error" v-if="newTeam.erreurs.joueur1">Veuillez remplir ce champ</p>
         </div>
         
         <div>
             <label for="joueur2">Pseudonyme du joueur #2</label>
             <input type="text" id="joueur2" v-model.trim="newTeam.joueur2">
-            <p v-if="newTeam.erreurs.joueur2">Veuillez remplir ce champ</p>
+            <p class="error" v-if="newTeam.erreurs.joueur2">Veuillez remplir ce champ</p>
         </div>
 
         <div>
             <label for="joueur3">Pseudonyme du joueur #2</label>
             <input type="text" id="joueur3" v-model.trim="newTeam.joueur3">
-            <p v-if="newTeam.erreurs.joueur3">Veuillez remplir ce champ</p>
+            <p class="error" v-if="newTeam.erreurs.joueur3">Veuillez remplir ce champ</p>
         </div>
 
         <div>
             <label for="joueur4">Pseudonyme du joueur #4</label>
             <input type="text" id="joueur4" v-model.trim="newTeam.joueur4">
-            <p v-if="newTeam.erreurs.joueur4">Veuillez remplir ce champ</p>
+            <p class="error" v-if="newTeam.erreurs.joueur4">Veuillez remplir ce champ</p>
         </div>
 
         <div>
             <label for="joueur5">Pseudonyme du joueur #5</label>
             <input type="text" id="joueur5" v-model.trim="newTeam.joueur5">
-            <p v-if="newTeam.erreurs.joueur5">Veuillez remplir ce champ</p>
+            <p class="error" v-if="newTeam.erreurs.joueur5">Veuillez remplir ce champ</p>
         </div>
 
       <button type="submit">Ajouter l'équipe</button>
@@ -214,4 +214,11 @@ import router from '../router/index'
     }
   }
   </script>
+
+  <style scoped>
+  .error{
+    color:red;
+  }
+
+</style>
   
