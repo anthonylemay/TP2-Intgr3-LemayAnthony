@@ -29,7 +29,7 @@ const router = createRouter({
       component: Ajout
     },
     {
-      path: '/:pathMatch(.*)',
+      path: '/:pathMatch(.*)*',
       name: 'error',
       component: Error
     }

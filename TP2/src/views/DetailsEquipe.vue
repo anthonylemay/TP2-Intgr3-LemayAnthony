@@ -1,28 +1,52 @@
 <template>
-  <div v-if="detailsEquipe">
-    <h1>Détails de l'équipe {{ detailsEquipe.nom }}</h1>
-    <img :src="detailsEquipe.logo" :alt="'Logo de l\'équipe ' + detailsEquipe.nom" />
-    <h2>{{ detailsEquipe.nom }}</h2>
-    <ul>
-      <li v-for="joueur in detailsEquipe.joueurs" :key="joueur.nomJoueur">
-        {{ joueur.nomJoueur }}
-      </li>
-    </ul>
-  </div>
+    <div>
+      <div class="team-info">
+        <img :src="logo" alt="Team Logo">
+        <h1>{{ nom }}</h1>
+        <h2>Players:</h2>
+        <ul>
+          <li v-for="joueur in joueurs" :key="joueur.nomJoueur">
+            {{ joueur.nomJoueur }}
+          </li>
+        </ul>
+      </div>
+    </div>
 </template>
+  
+  
+  <script>
 
-<script>
-export default {
-  inject: ['equipes'],
-  data() {
-    return {
-      idEquipe: this.$route.params.id
+  export default {
+
+    inject: ['equipes', 'games', 'ajoutEquipe'],
+    data() {
+      return {
+        idEquipe: this.$route.params.id,
+        nom: "",
+        logo:"",
+        joueurs:[]
+      }
+    },
+    mounted(){
+        let validTeamId = false
+        for(let i=0; i<this.equipes.length; i++)
+        {
+            if(this.equipes[i].idEquipe == this.idEquipe)
+            {
+                validTeamId = true;
+                this.nom = this.equipes[i].nom
+                this.logo = this.equipes[i].logo
+                this.joueurs = this.equipes[i].joueurs
+                console.log(this.joueurs)
+                break
+                
+            }
+        }
+        if (!validTeamId){
+            this.$router.push({name:'error'})
+        }
     }
-  },
-  computed: {
-    detailsEquipe() {
-      return this.equipes.find((equipe) => equipe.idEquipe == this.idEquipe)
-    }
-  }
 }
-</script>
+
+  </script>
+  
