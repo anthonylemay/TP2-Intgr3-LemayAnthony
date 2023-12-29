@@ -70,7 +70,6 @@ export default {
       } else {
         console.error('Invalid team structure', newTeam);
       }
-
     }
   },
   components: {

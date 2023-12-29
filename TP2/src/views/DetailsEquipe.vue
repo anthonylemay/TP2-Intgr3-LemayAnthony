@@ -11,7 +11,9 @@
   </template>
   
   <script>
+
   export default {
+
     props: ['equipes'],
     data() {
       return {
