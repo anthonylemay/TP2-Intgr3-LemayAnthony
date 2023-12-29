@@ -56,6 +56,9 @@
   
   <script>
   
+import router from '../router/index'
+
+
   export default {
 
     props: {
@@ -94,13 +97,12 @@
     }
   },
     
-    // inject car on passe du parent au 2nd child. Ajout de validation.
     data() {
       return {
         newTeam: {
             idEquipe: "",
-            nom: "",
-            logo: "",
+            nomEquipe: "",
+            logoEquipe: "",
             joueur1: "",
             joueur2: "",
             joueur3: "",
@@ -129,10 +131,10 @@
             logo: this.newTeam.logoEquipe,
             joueurs:[
                 {nomJoueur: this.newTeam.joueur1},
-                {nomJoueur: this.joueur2},
-                {nomJoueur: this.joueur3},
-                {nomJoueur: this.joueur4},
-                {nomJoueur: this.joueur5}
+                {nomJoueur: this.newTeam.joueur2},
+                {nomJoueur: this.newTeam.joueur3},
+                {nomJoueur: this.newTeam.joueur4},
+                {nomJoueur: this.newTeam.joueur5}
             ]
         }
         e.preventDefault() // à enlever, doublon de .prevent en haut.
@@ -143,13 +145,13 @@
             this.ajoutEquipe(teamData); // s'assurer que je dois pas gérer le ID de chaque équipe individuellement. sinon idEquipe: Date.now() ca peut peutetre faire. À valider.
             this.resetForm();
             console.log("équipe ajoutée"); // debug
-            //****AJOUTER */ le redirection aux équipes
-
+            router.push({ name: 'equipes' });
         }
 
     },
     validateTeam(){
         let valide = true;
+
         if(this.newTeam.idEquipe ===""){
             this.newTeam.erreurs.idEquipe = true
                     valide = false
@@ -196,6 +198,7 @@
         this.resetErreurs();
     }, 
     resetErreurs(){
+        this.newTeam.erreurs.idEquipe = false
         this.newTeam.erreurs.nomEquipe = false
         this.newTeam.erreurs.logoEquipe = false
         this.newTeam.erreurs.joueur1 = false
