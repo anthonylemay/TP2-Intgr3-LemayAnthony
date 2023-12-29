@@ -4,12 +4,12 @@
     <form @submit="valider">
         <div>
             <label for="idEquipe">Id d'équipe</label>
-            <input type="text" id="idEquipe" v-model.trim="newTeam.idEquipe">
+            <input type="number" id="idEquipe" v-model.trim="newTeam.idEquipe">
             <p v-if="newTeam.erreurs.idEquipe">Veuillez remplir ce champ</p>
         </div>
         <div>
             <label for="nomEquipe">Nom d'équipe</label>
-            <input type="text" id="nomEquipe" v-model="newTeam.nomEquipe">
+            <input type="text" id="nomEquipe" v-model.trim="newTeam.nomEquipe">
             <p v-if="newTeam.erreurs.nomEquipe">Veuillez remplir ce champ</p>
         </div>
         
@@ -152,9 +152,9 @@ import router from '../router/index'
     validateTeam(){
         let valide = true;
 
-        if(this.newTeam.idEquipe ===""){
-            this.newTeam.erreurs.idEquipe = true
-                    valide = false
+        if(isNaN(Number(this.newTeam.idEquipe)) || this.newTeam.idEquipe === ""){
+        this.newTeam.erreurs.idEquipe = true;
+        valide = false;
         }
         if(this.newTeam.nomEquipe ===""){
             this.newTeam.erreurs.nomEquipe = true
