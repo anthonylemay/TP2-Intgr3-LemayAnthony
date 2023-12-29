@@ -1,8 +1,6 @@
 <template>
   <Navbar />
-
   <RouterView/>
-  <!-- voir si je peux passer uniquement les provide / prosp que j'Ai besoin aux bonnes pages.-->
 </template>
 
 <script>
@@ -79,7 +77,6 @@ export default {
   methods: {
     ajoutEquipe(newTeam) {
       if (newTeam && newTeam.nom && Array.isArray(newTeam.joueurs)) {
-        // À valider, je crois que j'aurais besoin des validations style string, number, etc des premiers exercices.
         this.equipes.push(newTeam)
       } else {
         console.error('Invalid team structure', newTeam)
@@ -90,7 +87,5 @@ export default {
 </script>
 
 <style>
-.container {
-  max-width: 1200px;
-}
+
 </style>

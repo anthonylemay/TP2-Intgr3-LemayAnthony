@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>Équipes</h1>
-    <!--Possiblement ajouter un comp. de Hero de début page-->
     <button>
       <RouterLink :to="{ name: 'ajout'}">Ajouter une équipe</RouterLink>
     </button>
@@ -19,21 +18,6 @@
 
 <script>
 export default {
-  inject: {
-    equipes: {
-      type: Array,
-      required: true,
-      default: () => [
-        { idEquipe: Number, required: true, default: 0 },
-        { nom: String, required: true, default: '' },
-        { logo: String, required: true, default: '' },
-        {
-          joueurs: Array,
-          required: true,
-          default: () => [{ nomJoueur: String, required: true, default: '' }]
-        }
-      ]
-    }
-  }
+  inject:['equipes']
 }
 </script>

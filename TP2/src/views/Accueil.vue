@@ -15,6 +15,10 @@
 
 <script>
 export default {
+    inject: ['games']
+
+  /*Si j'avais à gérer l'ajout ou la modification de jeux à partir de l'accueil
+  
   inject: {
     games: {
       type: Array,
@@ -25,6 +29,6 @@ export default {
         { description: String, required: true, default: '' }
       ]
     }
-  }
+  } */
 }
 </script>
