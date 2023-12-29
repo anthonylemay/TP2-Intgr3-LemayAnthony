@@ -14,7 +14,28 @@
 
 <script>
 export default {
-    props: ['games', 'equipes', 'ajoutEquipe']
+    props:{
+    ajoutEquipe: Function,
+    equipes: Array,
+    games:{
+      type: Array,
+      required: true,
+      default: () => [
+        {gameName: String,
+        required: true,
+        default: ""
+        },
+        {gamePicture: String,
+        required: true,
+        default: ""
+        },
+        {description: String,
+        required: true,
+        default: ""
+        }
+      ]
+    }
+}
 ,
 
   mounted() {

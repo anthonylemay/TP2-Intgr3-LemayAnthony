@@ -2,12 +2,12 @@
 
 <Navbar/>
 
-  <RouterView :games="games" :equipes="equipes" :ajoutEquipe="ajoutEquipe"/>
+  <RouterView :games="games" :equipes="equipes" :ajoutEquipe="ajoutEquipe"/> <!-- voir si je peux passer uniquement les provide / prosp que j'Ai besoin aux bonnes pages.-->
 
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, stringifyQuery } from 'vue-router'
 import Navbar from './components/Navbar.vue'
 
 export default {
@@ -40,7 +40,6 @@ export default {
       equipes:[
       {idEquipe: 1,
         nom:"Space Rangers",
-        description: "Top Squad",
         logo:"https://cdnb.artstation.com/p/assets/images/images/005/603/301/large/daka-dibuja-pandas.jpg?1492380569",
         joueurs:[
           {nomJoueur: "TonyBikini"},
@@ -52,7 +51,6 @@ export default {
       },
       {idEquipe: 2,
         nom:"Mom Reapers",
-        description: "Do not respawn",
         logo:"https://cdnb.artstation.com/p/assets/images/images/005/603/303/large/daka-dibuja-reapers.jpg?1492380571",
         joueurs:[
           {nomJoueur: "AFKFCK_21"},
@@ -67,7 +65,12 @@ export default {
   },
   methods:{
     ajoutEquipe(newTeam){
-      this.equipes.push(newTeam);
+      if(newTeam && newTeam.nom && Array.isArray(newTeam.joueurs)){ // À valider, je crois que j'aurais besoin des validations style string, number, etc des premiers exercices.
+        this.equipes.push(newTeam);
+      } else {
+        console.error('Invalid team structure', newTeam);
+      }
+
     }
   },
   components: {
