@@ -40,6 +40,7 @@ export default {
       equipes:[
       {idEquipe: 1,
         nom:"Space Rangers",
+        description: "Top Squad",
         logo:"https://cdnb.artstation.com/p/assets/images/images/005/603/301/large/daka-dibuja-pandas.jpg?1492380569",
         joueurs:[
           {nomJoueur: "TonyBikini"},
@@ -51,6 +52,7 @@ export default {
       },
       {idEquipe: 2,
         nom:"Mom Reapers",
+        description: "Do not respawn",
         logo:"https://cdnb.artstation.com/p/assets/images/images/005/603/303/large/daka-dibuja-reapers.jpg?1492380571",
         joueurs:[
           {nomJoueur: "AFKFCK_21"},

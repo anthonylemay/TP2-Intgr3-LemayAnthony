@@ -8,7 +8,7 @@
   
   <script>
   export default {
-    inject: ['ajoutEquipe'],
+    props: ['equipes', 'ajoutEquipe', 'games'], // ou inject, à valider!
     data() {
       return {
         newTeam: {

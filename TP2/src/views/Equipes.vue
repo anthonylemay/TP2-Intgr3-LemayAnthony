@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  inject: ['equipes', 'ajoutEquipe']
+    props: ['equipes', 'ajoutEquipe', 'games']
   // Use the injected properties as needed
 }
 </script>
