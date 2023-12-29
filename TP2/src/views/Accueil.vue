@@ -17,7 +17,7 @@
 export default {
     inject: ['games']
 
-  /*Si j'avais à gérer l'ajout ou la modification de jeux à partir de l'accueil
+  /*Test ci-dessous si j'avais à gérer l'ajout ou la modification de jeux à partir de l'accueil
   
   inject: {
     games: {
