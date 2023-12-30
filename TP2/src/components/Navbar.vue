@@ -1,48 +1,54 @@
 <template>
-
+<header>
     <nav>
-        
+      <div class="nav container">
       <router-link :to="{name: 'accueil'}" class="logo">eSports</router-link>
       <ul class="navLink">
         <li><router-link :to="{name: 'accueil'}">Accueil</router-link></li>
         <li><router-link :to="{name: 'equipes'}">Équipes</router-link></li>
       </ul>
+      </div>  
     </nav>
+
+</header>
 
 </template>
 
 <style scoped>
 nav {
-    display:flex;
+    padding: 1rem;
+    background-color: rgb(29, 29, 29);
+}
+
+.nav{
+  display:flex;
     justify-content: space-between;
     margin: 0 auto;
-    padding: 1rem;
-  background-color: rgb(181, 181, 181);
 }
 
 nav a{
     text-decoration:none;
-    color: black;
+    color: rgb(114, 114, 114);
     font-size: 2rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
 }
 
 nav a:hover{
-    text-decoration:underline;
-    opacity: 0.5;
+    opacity: 0.8;
 }
 
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: rgb(168, 90, 212);
+
 }
 
 nav a.router-link-exact-active:hover {
-  background-color: transparent;
+  color:rgb(115, 0, 255);
 }
 
-nav a:first-of-type {
-  border: 0;
-}
+
 
 .navLink{
     display:inline-flex;
@@ -53,8 +59,15 @@ nav a:first-of-type {
     margin:1rem;
 }
 
-.logo{
+nav a.logo{
     font-size:3rem;
+    color:rgb(255, 255, 255);
+    text-decoration: none;
 }
 
+nav ul{
+  list-style-type: none;
+}
+
+  
 </style>

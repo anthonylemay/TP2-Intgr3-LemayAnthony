@@ -1,15 +1,18 @@
 <template>
   <Navbar />
   <RouterView/>
+  <Footer />
 </template>
 
 <script>
 import { RouterLink, RouterView } from 'vue-router'
 import Navbar from './components/Navbar.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    Footer
   },
   provide() {
     return {
@@ -61,7 +64,7 @@ export default {
         },
         {
           idEquipe: 2,
-          nom: 'Mom Reapers',
+          nom: 'South Reapers',
           logo: 'https://cdnb.artstation.com/p/assets/images/images/005/603/303/large/daka-dibuja-reapers.jpg?1492380571',
           joueurs: [
             { nomJoueur: 'AFKFCK_21' },
@@ -87,5 +90,28 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+
+h1,h2,h3,h4,h5{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+p{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.container{
+  max-width:1200px;
+}
 
 </style>

@@ -1,65 +1,162 @@
 <template>
+  <div class="hero">
   <h1>Ajout d'équipe</h1>
   <hr />
   <form @submit="valider">
-    <div>
+    <div class="sectionForm">
+      <div class="labelIn">
       <label for="idEquipe">Id d'équipe</label>
       <input type="number" id="idEquipe" v-model.trim="newTeam.idEquipe" />
-      <p class="error" v-if="newTeam.erreurs.idEquipe">Veuillez remplir ce champ</p>
+      </div>
+      <p class="error" v-if="newTeam.erreurs.idEquipe">Veuillez inscrire une ID valide (chiffres).</p>
     </div>
-    <div>
+    <div class="sectionForm">
+      <div class="labelIn">
       <label for="nomEquipe">Nom d'équipe</label>
       <input type="text" id="nomEquipe" v-model.trim="newTeam.nomEquipe" />
-      <p class="error" v-if="newTeam.erreurs.nomEquipe">Veuillez remplir ce champ</p>
+    </div>
+      <p class="error" v-if="newTeam.erreurs.nomEquipe">Veuillez inscrire le nom de l'équipe.</p>
     </div>
 
-    <div>
+    <div class="sectionForm">
+      <div class="labelIn">
       <label for="logoEquipe">Url du logo d'équipe</label>
       <input type="text" id="logoEquipe" v-model.trim="newTeam.logoEquipe" />
-      <p class="error" v-if="newTeam.erreurs.logoEquipe">Veuillez remplir ce champ</p>
+    </div>
+      <p class="error" v-if="newTeam.erreurs.logoEquipe">Veuillez inclure l'url du logo.</p>
     </div>
 
-    <div>
+    <div class="sectionForm">
+      <div class="labelIn">
       <label for="joueur1">Pseudonyme du joueur #1</label>
       <input type="text" id="joueur1" v-model.trim="newTeam.joueur1" />
-      <p class="error" v-if="newTeam.erreurs.joueur1">Veuillez remplir ce champ</p>
+    </div>
+      <p class="error" v-if="newTeam.erreurs.joueur1">Veuillez inscrire le nom du joueur #1</p>
     </div>
 
-    <div>
+    <div class="sectionForm">
+      <div class="labelIn">
       <label for="joueur2">Pseudonyme du joueur #2</label>
       <input type="text" id="joueur2" v-model.trim="newTeam.joueur2" />
-      <p class="error" v-if="newTeam.erreurs.joueur2">Veuillez remplir ce champ</p>
+    </div>
+      <p class="error" v-if="newTeam.erreurs.joueur2">Veuillez inscrire le nom du joueur #2</p>
     </div>
 
-    <div>
-      <label for="joueur3">Pseudonyme du joueur #2</label>
+    <div class="sectionForm">
+      <div class="labelIn">
+      <label for="joueur3">Pseudonyme du joueur #3</label>
       <input type="text" id="joueur3" v-model.trim="newTeam.joueur3" />
-      <p class="error" v-if="newTeam.erreurs.joueur3">Veuillez remplir ce champ</p>
+    </div>
+      <p class="error" v-if="newTeam.erreurs.joueur3">Veuillez inscrire le nom du joueur #3</p>
     </div>
 
-    <div>
+    <div class="sectionForm">
+      <div class="labelIn">
       <label for="joueur4">Pseudonyme du joueur #4</label>
       <input type="text" id="joueur4" v-model.trim="newTeam.joueur4" />
-      <p class="error" v-if="newTeam.erreurs.joueur4">Veuillez remplir ce champ</p>
+    </div>
+      <p class="error" v-if="newTeam.erreurs.joueur4">Veuillez inscrire le nom du joueur #4</p>
     </div>
 
-    <div>
+    <div class="sectionForm">
+      <div class="labelIn">
       <label for="joueur5">Pseudonyme du joueur #5</label>
       <input type="text" id="joueur5" v-model.trim="newTeam.joueur5" />
-      <p class="error" v-if="newTeam.erreurs.joueur5">Veuillez remplir ce champ</p>
+    </div>
+      <p class="error" v-if="newTeam.erreurs.joueur5">Veuillez inscrire le nom du joueur #5</p>
+
     </div>
 
     <button type="submit">Ajouter l'équipe</button>
   </form>
+</div>
 </template>
+
+
+
+<style scoped>
+
+form button{
+  margin-left:9rem;
+  width:200px;
+  background-color: black;
+  padding:1rem;
+  color:white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight:bold;
+  border-radius:30px;
+  border: 0px solid;
+
+}
+
+form button:hover{
+  background-color: blueviolet;
+}
+
+.hero{
+  padding:5rem;
+}
+
+.hero h1{
+  margin-bottom: 1rem;
+}
+
+form {
+  font-family: gill 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+}
+
+form input{
+  margin:1rem;
+  border-radius: 30px;
+  border: 0px solid;
+  padding:.2rem;
+  max-width:100%;
+  min-width:200px;
+  min-height:30px;
+}
+
+form label{
+  padding-left:2rem;
+  color:white;
+}
+
+.sectionForm{
+
+  background-color:rgb(65, 65, 65);
+  max-width:35%;
+  margin:1rem;
+  border-radius:30px;
+}
+
+.sectionForm:hover{
+  background-color:blueviolet;
+}
+
+.labelIn{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+
+.error {
+  color: rgb(255, 168, 168);
+  text-align:center;
+  padding:1rem;
+}
+</style>
+
 
 <script>
 import router from '../router/index'
 
 export default {
   inject:['ajoutEquipe', 'equipes'],
-  
-  /*props: {
+
+  /*
+  Validation - Si c'était nécessaire.
+  props: {
     ajoutEquipe: {
       type: Function,
       required: true
@@ -191,9 +288,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.error {
-  color: red;
-}
-</style>
